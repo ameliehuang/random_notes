@@ -51,3 +51,14 @@ git push
    - Select Build Tools from drop down
    - Select Maven from drop down
    - Tick the Always update snapshots check box
+
+##git stash
+
+###git stash
+###git stash list
+stash@{0}: WIP on master: 049d078 added the index file
+stash@{1}: WIP on master: c264051 Revert "added file_size"
+stash@{2}: WIP on master: 21d80a5 added number to log
+###git stash apply or git stash apply stash@{2}
+
+
