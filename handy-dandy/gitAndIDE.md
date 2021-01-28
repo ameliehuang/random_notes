@@ -22,7 +22,7 @@ upstream  https://github.com/ORIGINAL_OWNER/ORIGINAL_REPOSITORY.git (fetch)
 upstream  https://github.com/ORIGINAL_OWNER/ORIGINAL_REPOSITORY.git (push)
 
 ### 4. featch the changes in the original/parent repo:
-git fetch upstream
+git fetch --tags upstream //getting all the tags as well
 remote: Counting objects: 75, done.
 remote: Compressing objects: 100% (53/53), done.
 remote: Total 62 (delta 27), reused 44 (delta 9)
@@ -43,7 +43,18 @@ Auto-merging yam-client-raptor-parent/yam-client-spring-automation/src/test/reso
 ...
 
 ### 7. update the fork repo on GitHub with the changes:
-git push
+git push -f --tags //push all the tags to orig as well
+
+## git create a local branch by pulling from a remote branch
+
+### 1. checkout/create a new branch base of a remote branch
+git checkout -b develop-cbupgrade upstream/develop
+
+### 2. pull any latest commits
+git pull
+
+### 3. push to the fork remote repo
+git push origin HEAD
 
 ## intellij
 ### "Maven: Failed to read artifact descriptor" on projects with child/parent modules
@@ -67,4 +78,13 @@ stash@{1}: WIP on master: c264051 Revert "added file_size"
 stash@{2}: WIP on master: 21d80a5 added number to log
 ###git stash apply or git stash apply stash@{2}
 
+##switch between git accounts/specify git account for push etc.
+git push https://USERNAME@REPO.git
 
+##git checkout branch from a specific remote
+###git remote -v to find the remote name
+###git checkout -b BRANCH_NAME REMOTE_NAME/BRANCH_NAME
+
+##mvn
+###get dependency tree
+mvn dependency:tree -Dverbose
